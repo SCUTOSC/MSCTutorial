@@ -31,7 +31,6 @@ jobs:
         continue-on-error: true
         run: | 
           sudo apt update && sudo apt install -y build-essential
-          echo "NODE_OPTIONS=--openssl-legacy-provider" >> ~/.bashrc
           source ~/.bashrc
           npm install
   
@@ -49,7 +48,9 @@ jobs:
         with:
           path: ./node_modules
           key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('package.json') }}
-    
+      - name: Set env
+        run: |
+          export NODE_OPTIONS=--openssl-legacy-provider
       - name: Build
         run: npm run docs:build
 
@@ -75,7 +76,9 @@ jobs:
         with:
           path: ./node_modules
           key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('package.json') }}
-      
+      - name: Set env
+        run: |
+            export NODE_OPTIONS=--openssl-legacy-provider
       - name: Build
         run: npm run docs:build
       
