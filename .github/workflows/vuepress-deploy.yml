@@ -15,7 +15,7 @@ jobs:
       - name: Setup Node.js environment
         uses: actions/setup-node@v3.7.0
         with:
-          node-version: "12.x"
+          node-version: "16.x"
       
       - name: Cache dependencies
         id: cache-node-modules
@@ -58,10 +58,10 @@ jobs:
       name: github-pages
     steps:
       - name: Check github secrets
-        run: sh -c "if [ -z "${{ secrets.ACTIONS_DEPLOY_KEY }}" ]; then
+        run: sh -c 'if [ -z "${{ secrets.ACTIONS_DEPLOY_KEY }}" ]; then
             echo "GitHub Actions deploy key is missing";
             exit 1;
-          fi"
+          fi'
       
       - uses: actions/checkout@v3
 
