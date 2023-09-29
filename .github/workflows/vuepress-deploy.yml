@@ -5,9 +5,6 @@ on:
   pull_request:
     branches: [ "main" ]
 
-env:
-  NODE_OPTIONS: '--openssl-legacy-provider'
-
 jobs:
 
   ensure-toolchain:
@@ -18,7 +15,7 @@ jobs:
       - name: Setup Node.js environment
         uses: actions/setup-node@v3.7.0
         with:
-          node-version: "16.x"
+          node-version: "16.18.0"
       
       - name: Cache dependencies
         id: cache-node-modules
@@ -51,7 +48,10 @@ jobs:
         with:
           path: ./node_modules
           key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('package.json') }}
-
+      
+      - name: echo node version
+        run: node -v
+      
       - name: Build
         run: npm run docs:build
 
