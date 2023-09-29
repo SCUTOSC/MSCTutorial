@@ -15,13 +15,16 @@ module.exports = {
     sidebar: {
       '/tasks/': [
         '',
-        '1-ubuntu-install/',
-        '2-learn-git-command/',
+        '1-introduce-to-linux/',
+        '2-learn-git/',
         '3-write-bubble-sort-on-linux/',
       ],
 
     }
   },
-  plugins: ['@vuepress/nprogress']
+  plugins: ['@vuepress/nprogress'],
+  markdown: {
+    lineNumbers: true
+  }
 }
 
