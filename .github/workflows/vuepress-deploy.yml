@@ -8,9 +8,9 @@ on:
 jobs:
 
   ensure-toolchain:
+    runs-on: ubuntu-latest
     steps:
-    - name: Checkout
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v3
         
       - name: Setup Node.js environment
         uses: actions/setup-node@v3.7.0
@@ -35,7 +35,9 @@ jobs:
     runs-on: ubuntu-latest
     needs: [ensure-toolchain]
     steps:
-    - name: Cache dependencies
+      - uses: actions/checkout@v3
+
+      - name: Cache dependencies
         id: cache-node-modules
         uses: actions/cache@v3
         env:
@@ -44,8 +46,8 @@ jobs:
           path: ./node_modules
           key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('package.json') }}
     
-    - name: Build
-      run: npm run docs:build
+      - name: Build
+        run: npm run docs:build
 
   deploy:
     runs-on: ubuntu-latest
@@ -53,13 +55,15 @@ jobs:
     environment:
       name: github-pages
     steps:
-    - name: Check github secrets
-      run: sh -c "if [ -z "${{ secrets.ACTIONS_DEPLOY_KEY }}" ]; then
-          echo "GitHub Actions deploy key is missing";
-          exit 1;
-        fi"
-    
-    - name: Cache dependencies
+      - name: Check github secrets
+        run: sh -c "if [ -z "${{ secrets.ACTIONS_DEPLOY_KEY }}" ]; then
+            echo "GitHub Actions deploy key is missing";
+            exit 1;
+          fi"
+      
+      - uses: actions/checkout@v3
+
+      - name: Cache dependencies
         id: cache-node-modules
         uses: actions/cache@v3
         env:
@@ -67,12 +71,12 @@ jobs:
         with:
           path: ./node_modules
           key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('package.json') }}
-    
-    - name: Build
-      run: npm run docs:build
-    
-    - name: Deploy
-      uses: peaceiris/actions-gh-pages@v3
-      with:
-        deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
-        publish_dir: ./docs/.vuepress/dist
+      
+      - name: Build
+        run: npm run docs:build
+      
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
+          publish_dir: ./docs/.vuepress/dist
