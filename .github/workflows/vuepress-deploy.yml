@@ -1,0 +1,78 @@
+name: Build and Deploy
+on:
+  push:
+    branches: [ "main", "patch-add-github-workflow" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+
+  ensure-toolchain:
+    steps:
+    - name: Checkout
+        uses: actions/checkout@v3
+        
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v3.7.0
+        with:
+          node-version: "12.x"
+      
+      - name: Cache dependencies
+        id: cache-node-modules
+        uses: actions/cache@v3
+        env:
+          cache-name: cache-node-modules
+        with:
+          path: ./node_modules
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('package.json') }}
+      
+      - if: ${{ steps.cache-node-modules.outputs.cache-hit != 'true' }}
+        name: Install dependencies
+        continue-on-error: true
+        run: npm install
+  
+  build:
+    runs-on: ubuntu-latest
+    needs: [ensure-toolchain]
+    steps:
+    - name: Cache dependencies
+        id: cache-node-modules
+        uses: actions/cache@v3
+        env:
+          cache-name: cache-node-modules
+        with:
+          path: ./node_modules
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('package.json') }}
+    
+    - name: Build
+      run: npm run docs:build
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: [ensure-toolchain]
+    environment:
+      name: github-pages
+    steps:
+    - name: Check github secrets
+      run: sh -c "if [ -z "${{ secrets.ACTIONS_DEPLOY_KEY }}" ]; then
+          echo "GitHub Actions deploy key is missing";
+          exit 1;
+        fi"
+    
+    - name: Cache dependencies
+        id: cache-node-modules
+        uses: actions/cache@v3
+        env:
+          cache-name: cache-node-modules
+        with:
+          path: ./node_modules
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('package.json') }}
+    
+    - name: Build
+      run: npm run docs:build
+    
+    - name: Deploy
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
+        publish_dir: ./docs/.vuepress/dist
