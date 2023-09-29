@@ -30,7 +30,7 @@ jobs:
         name: Install dependencies
         continue-on-error: true
         run: | 
-          apt install -y build-essential
+          sudo apt update && sudo apt install -y build-essential
           npm install
   
   build:
