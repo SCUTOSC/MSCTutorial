@@ -1,7 +1,7 @@
 ---
 name: 请求新功能
 about: 为本项目提供一个新的功能/修改建议
-title: ''
+title: '[RFC] '
 labels: enhancement
 
 ---
