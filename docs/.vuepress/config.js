@@ -3,6 +3,11 @@ module.exports = {
   title: 'MSC实验教程',
   description: 'Welcome!',
   themeConfig: {
+    repo: 'scutosc/MSCTutorial',
+    editLinks: true,
+    docsBranch: 'main',
+    docsDir: 'docs',
+    editLinkText: '帮助我们改善此页面！',
     nav: [
       { text: '首页', link: '/' },
       {
@@ -20,11 +25,12 @@ module.exports = {
         '3-write-bubble-sort-on-linux/',
       ],
 
-    }
+    },
   },
-  plugins: ['@vuepress/nprogress'],
+  plugins: ['@vuepress/nprogress', '@vuepress/back-to-top', '@vuepress/plugin-last-updated'],
   markdown: {
     lineNumbers: true
-  }
+  },
+
 }
 

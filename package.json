@@ -18,6 +18,8 @@
   },
   "homepage": "https://github.com/SCUTOSC/Tutorial#readme",
   "devDependencies": {
+    "@vuepress/plugin-back-to-top": "^1.9.10",
+    "@vuepress/plugin-last-updated": "^1.9.10",
     "@vuepress/plugin-nprogress": "^1.9.10",
     "vuepress": "^1.9.10"
   }
