@@ -98,7 +98,6 @@ git push
 4. 输入提交信息，然后点击 `提交` 按钮，就能完成一次 commit。
 
 ![commit](./image/image-3.png)
-
 5. 点击 `推送` 按钮，就能将修改推送到远程仓库了。
 
 ![push](./image/image-4.png)
