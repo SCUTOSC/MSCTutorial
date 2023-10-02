@@ -45,7 +45,10 @@ git clone https://github.com/your-username/your-repository.git
 
 这将会在本地创建一个与远程仓库相同的副本。
 
-`git clone` 后跟随的 URL 可以通过下图所示的地方获取 ![获取URL](./image/image.png)
+`git clone` 后跟随的 URL 可以通过下图所示的地方获取
+
+ ![获取URL](./image/image.png)
+ 
 3. 进入克隆后的文件夹(替换为你的仓库名称)：
 
 ```  
@@ -81,14 +84,21 @@ git push
 - 如果你使用vscode、IDEA、Clion等IDE，那么你也可以通过图形化的界面来操作Git，操作方法如下(以vscode 为例)：
 
 1. 首先在vs'code中点击 `源代码管理` 按钮，然后点击 `克隆仓库` 按钮，然后输入你的仓库并回车，就能克隆到当前目录下
+
+
 ![clone](./image/image-1.png)
+
 2. 然后进行任意修改，只要不是在 `.gitignore` 文件中的文件都会被识别为修改。
 
 ![changes](./image/image-2.png)
+
 3. 修改结束后，点击更改旁的加号可以暂存所有更改，文件旁的加号可以暂存单个文件。
+
+
 4. 输入提交信息，然后点击 `提交` 按钮，就能完成一次 commit。
 
 ![commit](./image/image-3.png)
+
 5. 点击 `推送` 按钮，就能将修改推送到远程仓库了。
 
 ![push](./image/image-4.png)
@@ -106,5 +116,8 @@ git push
 
 - 还有两个进阶的学习内容，你可以在网上搜索学习，这里就不进一步展开了
 - 一是基于 PR (Pull Request) 的团队协作流程，大致流程如下图所示，你也可以在[Github 教程 - 团队协作流程](https://www.cnblogs.com/eyunhua/p/13215936.html)中简单学习。虽然看起来略微复杂，但是操作过一次之后就很熟练的了。
+
+
 ![pull request](./image/image-5.png)
+
 - 二是 Github 的 SSH 设置(这个主要是为了解决 Github 的网络问题)：可见 [Github 教程 - 设置 SSH 公钥](https://www.cnblogs.com/leonliuo/p/16295806.html)
