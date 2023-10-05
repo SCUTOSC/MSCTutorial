@@ -70,6 +70,16 @@ git add README.md
 ```  
 git commit -m "commit-message"  
 ```
+如果这里提交失败，显示
+
+![Q1](./image/Q1.png)
+
+那么在 git bash 中输入(替换成你的联系邮箱和昵称):
+
+```
+git config --global user.email "you@example.com"
+git config --global user.name "Your Name"
+```
 
 6. 将本地仓库的更改推送到远程仓库。在命令行中输入以下命令：
 
