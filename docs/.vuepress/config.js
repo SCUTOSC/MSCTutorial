@@ -23,6 +23,7 @@ module.exports = {
         '1-introduce-to-linux/',
         '2-learn-git/',
         '3-write-bubble-sort-on-linux/',
+        '4-markdown/'
       ],
 
     },
