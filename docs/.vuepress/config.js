@@ -1,8 +1,12 @@
 module.exports = {
   base: '/',
-  title: 'MSC实验教程',
+  title: 'OSC实验教程',
   description: 'Welcome!',
+  head: [
+    ['link', { rel: 'icon', href: '/favicon.jpg' }]
+  ],
   themeConfig: {
+    logo: '/osc_icon.jpg',
     repo: 'scutosc/MSCTutorial',
     editLinks: true,
     docsBranch: 'main',
