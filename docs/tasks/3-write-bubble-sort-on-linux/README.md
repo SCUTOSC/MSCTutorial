@@ -1,5 +1,11 @@
 # #3 - 在Linux上编写冒泡排序算法
 
+::: warning
+本网站托管旧的 MSCTutorial，不再更新。
+新网址：[https://lab.scutosc.cn/](https://lab.scutosc.cn/)
+新的仓库地址：[https://github.com/SCUTOSC/Lab](https://github.com/SCUTOSC/Lab)
+:::
+
 ::: tip 本文维护者
 
 - 何懿聪 <heyicong@dragonos.org>
