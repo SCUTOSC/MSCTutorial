@@ -2,6 +2,12 @@
 
 这是华工开源俱乐部的实验任务教程文档。
 
+::: warning
+本网站托管旧的 MSCTutorial，不再更新。
+新网址：[https://lab.scutosc.cn/](https://lab.scutosc.cn/)
+新的仓库地址：[https://github.com/SCUTOSC/Lab](https://github.com/SCUTOSC/Lab)
+:::
+
 ## 导航
 
 - [任务书](tasks/)
