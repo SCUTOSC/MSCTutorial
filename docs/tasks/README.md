@@ -1,5 +1,11 @@
 # 所有实验
 
+::: warning
+本网站托管旧的 MSCTutorial，不再更新。
+新网址：[https://lab.scutosc.cn/](https://lab.scutosc.cn/)
+新的仓库地址：[https://github.com/SCUTOSC/Lab](https://github.com/SCUTOSC/Lab)
+:::
+
 以下是华南理工大学开源俱乐部的实验任务：
 
 - [#1 - 初识Linux](1-introduce-to-linux)
